@@ -1,17 +1,31 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../index.css"; // agora ele usa o CSS global
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header style={{ background: "#222", color: "#fff", padding: "10px" }}>
-      <nav style={{ display: "flex", gap: "15px" }}>
-        <Link to="/" style={{ color: "#fff" }}>Login</Link>
-        <Link to="/cadastro" style={{ color: "#fff" }}>Cadastro</Link>
-        <Link to="/perfil" style={{ color: "#fff" }}>Perfil</Link>
-        <Link to="/cadastrar-mesas" style={{ color: "#fff" }}>Cadastrar Mesas</Link>
-        <Link to="/reservar-mesas" style={{ color: "#fff" }}>Reservar Mesas</Link>
-        <Link to="/consultar-mesas" style={{ color: "#fff" }}>Consultar Mesas</Link>
-        <Link to="/minhas-reservas" style={{ color: "#fff" }}>Minhas Reservas</Link>
-      </nav>
+    <header className="header">
+      <div className="logo">ReservaMesas</div>
+
+      <div className="menu-container">
+        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+          Menu ☰
+        </button>
+
+        {menuOpen && (
+          <nav className="menu-dropdown">
+            <Link to="/" onClick={() => setMenuOpen(false)}>Login</Link>
+            <Link to="/cadastro" onClick={() => setMenuOpen(false)}>Cadastro</Link>
+            <Link to="/perfil" onClick={() => setMenuOpen(false)}>Perfil</Link>
+            <Link to="/cadastrar-mesas" onClick={() => setMenuOpen(false)}>Cadastrar Mesas</Link>
+            <Link to="/reservar-mesas" onClick={() => setMenuOpen(false)}>Reservar Mesas</Link>
+            <Link to="/consultar-mesas" onClick={() => setMenuOpen(false)}>Consultar Mesas</Link>
+            <Link to="/minhas-reservas" onClick={() => setMenuOpen(false)}>Minhas Reservas</Link>
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
