@@ -8,6 +8,8 @@ import ReservarMesas from "./pages/ReservarMesas";
 import ConsultarMesas from "./pages/ConsultarMesas";
 import ListarMinhasReservas from "./pages/ListarMinhasReservas";
 import Header from "./components/Header";
+import Home from "./pages/Home";
+
 
 function AppRoutes() {
   return (
@@ -22,6 +24,8 @@ function AppRoutes() {
         <Route path="/reservar-mesas" element={<ReservarMesas />} />
         <Route path="/consultar-mesas" element={<ConsultarMesas />} />
         <Route path="/minhas-reservas" element={<ListarMinhasReservas />} />
+        <Route path="/" element={<Home />} />
+
       </Routes>
     </BrowserRouter>
   );

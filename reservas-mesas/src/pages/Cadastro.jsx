@@ -1,29 +1,41 @@
 import { Link } from "react-router-dom";
+import "./Cadastro.css";
 
 function Cadastro() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Cadastro de Usuário</h2>
+    <div className="cadastro-container">
+      <h1 className="cadastro-title">Cadastro de Usuário</h1>
 
-      <form>
-        <label>Nome:</label>
+      <form className="cadastro-form">
+        <label>Nome</label>
         <input type="text" placeholder="Digite seu nome" />
-        <br />
 
-        <label>Email:</label>
-        <input type="email" placeholder="Digite seu email" />
-        <br />
+        <label>Sobrenome</label>
+        <input type="text" placeholder="Digite seu sobrenome" />
 
-        <label>Senha:</label>
-        <input type="password" placeholder="Digite sua senha" />
-        <br />
+        <label>E-mail</label>
+        <input type="email" placeholder="Digite seu e-mail" />
 
-        <button type="submit">Cadastrar</button>
+        <label>Rua</label>
+        <input type="text" placeholder="Digite a rua" />
+
+        <label>Nº</label>
+        <input type="text" placeholder="Número" />
+
+        <label>Bairro</label>
+        <input type="text" placeholder="Digite seu bairro" />
+
+        <label>Cidade</label>
+        <input type="text" placeholder="Cidade" />
+
+        <label>UF</label>
+        <input type="text" maxLength={2} placeholder="UF" />
+
+        <button type="submit" className="btn-cadastrar">Cadastrar</button>
       </form>
 
-      <p>
-        Já possui conta?{" "}
-        <Link to="/">Faça login</Link>
+      <p className="cadastro-link">
+        Já possui conta? <Link to="/">Faça login</Link>
       </p>
     </div>
   );
