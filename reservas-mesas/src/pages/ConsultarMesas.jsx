@@ -1,70 +1,111 @@
 import { useState } from "react";
+import "./ConsultarMesas.css";
 
 function ConsultarMesas() {
-  const [filtro, setFiltro] = useState({ status: "", capacidade: "" });
-
-  // Simulação de mesas cadastradas
+  // Mesas cadastradas (exemplo BASE)
   const [mesas] = useState([
     { numero: 1, capacidade: 2, status: "disponível" },
     { numero: 2, capacidade: 4, status: "ocupada" },
     { numero: 3, capacidade: 6, status: "disponível" },
+    { numero: 4, capacidade: 4, status: "ocupada" },
   ]);
 
+  // Filtros da tela
+  const [filtro, setFiltro] = useState({
+    numero: "",
+    capacidade: "",
+    status: "",
+  });
+
+  // Resultado da consulta
   const [resultado, setResultado] = useState([]);
+
+  const handleChange = (e) => {
+    setFiltro({ ...filtro, [e.target.name]: e.target.value });
+  };
 
   const consultar = () => {
     let filtradas = mesas.filter((m) => {
-      const statusOk = filtro.status ? m.status === filtro.status : true;
-      const capOk = filtro.capacidade ? m.capacidade == filtro.capacidade : true;
-      return statusOk && capOk;
+      const numeroOK = filtro.numero ? m.numero == filtro.numero : true;
+      const capOK = filtro.capacidade ? m.capacidade == filtro.capacidade : true;
+      const statusOK = filtro.status ? m.status == filtro.status : true;
+      return numeroOK && capOK && statusOK;
     });
+
     setResultado(filtradas);
   };
 
   const limpar = () => {
-    setFiltro({ status: "", capacidade: "" });
+    setFiltro({ numero: "", capacidade: "", status: "" });
     setResultado([]);
   };
 
   return (
-    <div>
-      <h2>Consultar Mesas</h2>
+    <div className="mesas-container">
+      <h1 className="titulo">Consultar Mesas</h1>
 
-      <label>Status:</label>
-      <select
-        name="status"
-        value={filtro.status}
-        onChange={(e) => setFiltro({ ...filtro, status: e.target.value })}
-      >
-        <option value="">Todos</option>
-        <option value="disponível">Disponível</option>
-        <option value="ocupada">Ocupada</option>
-      </select>
-      <br />
+      {/* CARD DOS FILTROS */}
+      <div className="card-filtros">
+        <label>Número da Mesa</label>
+        <input
+          type="number"
+          name="numero"
+          value={filtro.numero}
+          onChange={handleChange}
+          placeholder="Ex: 1"
+        />
 
-      <label>Capacidade:</label>
-      <input
-        type="number"
-        value={filtro.capacidade}
-        onChange={(e) => setFiltro({ ...filtro, capacidade: e.target.value })}
-      />
-      <br />
+        <label>Capacidade</label>
+        <input
+          type="number"
+          name="capacidade"
+          value={filtro.capacidade}
+          onChange={handleChange}
+          placeholder="Ex: 4 pessoas"
+        />
 
-      <button onClick={consultar}>Consultar</button>
-      <button onClick={limpar}>Limpar</button>
+        <label>Status</label>
+        <select name="status" value={filtro.status} onChange={handleChange}>
+          <option value="">Todos</option>
+          <option value="disponível">Disponível</option>
+          <option value="ocupada">Ocupada</option>
+        </select>
 
-      <h3>Resultados:</h3>
-      {resultado.length > 0 ? (
-        <ul>
-          {resultado.map((m, i) => (
-            <li key={i}>
-              Mesa {m.numero} — Capacidade: {m.capacidade} — Status: {m.status}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Nenhum resultado encontrado.</p>
-      )}
+        <div className="botoes">
+          <button onClick={consultar} className="btn-consultar">Consultar</button>
+          <button onClick={limpar} className="btn-limpar">Limpar</button>
+        </div>
+      </div>
+
+      {/* RESULTADOS */}
+      <div className="card-resultados">
+        <h2>Resultados</h2>
+
+        {resultado.length === 0 ? (
+          <p>Nenhuma mesa encontrada.</p>
+        ) : (
+          <table className="tabela">
+            <thead>
+              <tr>
+                <th>Nº Mesa</th>
+                <th>Capacidade</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {resultado.map((m, i) => (
+                <tr key={i}>
+                  <td>{m.numero}</td>
+                  <td>{m.capacidade} pessoas</td>
+                  <td className={m.status === "disponível" ? "verde" : "vermelho"}>
+                    {m.status}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 }

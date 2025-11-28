@@ -1,0 +1,90 @@
+.mesas-container {
+  padding: 40px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.titulo {
+  text-align: center;
+  color: #8b4513;
+  margin-bottom: 25px;
+}
+
+/* CARD DE FILTROS */
+.card-filtros {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-filtros input,
+.card-filtros select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* BOTÕES */
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-consultar {
+  background: #8b4513;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-limpar {
+  background: #b12b1e;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CARD DE RESULTADOS */
+.card-resultados {
+  margin-top: 30px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tabela th, .tabela td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+.verde {
+  color: green;
+  font-weight: bold;
+}
+
+.vermelho {
+  color: red;
+  font-weight: bold;
+}

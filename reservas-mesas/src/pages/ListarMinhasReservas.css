@@ -1,0 +1,76 @@
+.minhas-reservas-container {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.titulo {
+  color: #8b4513;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.tabela-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.tabela-reservas {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-reservas th {
+  background: #8b4513;
+  color: #fff;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.tabela-reservas td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.col-acoes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn.ver {
+  background: #3178c6;
+  color: white;
+}
+
+.btn.editar {
+  background: #e6a100;
+  color: white;
+}
+
+.btn.cancelar {
+  background: #b12b1e;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.mensagem-vazia {
+  margin-top: 20px;
+  color: #b12b1e;
+  font-weight: bold;
+}

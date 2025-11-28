@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./ListarMinhasReservas.css";
 
 function ListarMinhasReservas() {
   const [reservas, setReservas] = useState([
@@ -17,39 +18,55 @@ function ListarMinhasReservas() {
 
   const verDetalhes = (reserva) => {
     alert(
-      `Reserva ${reserva.id}\nMesa: ${reserva.mesa}\nData: ${reserva.data}\nHorário: ${reserva.horario}`
+      `Reserva: ${reserva.id}\nMesa: ${reserva.mesa}\nData: ${reserva.data}\nHorário: ${reserva.horario}`
     );
   };
 
   return (
-    <div>
-      <h2>Minhas Reservas</h2>
-      <table border="1" cellPadding="5">
-        <thead>
-          <tr>
-            <th>Nº Reserva</th>
-            <th>Mesa</th>
-            <th>Data</th>
-            <th>Horário</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reservas.map((r) => (
-            <tr key={r.id}>
-              <td>{r.id}</td>
-              <td>{r.mesa}</td>
-              <td>{r.data}</td>
-              <td>{r.horario}</td>
-              <td>
-                <button onClick={() => verDetalhes(r)}>Ver</button>
-                <button onClick={() => editarReserva(r.id)}>Editar</button>
-                <button onClick={() => cancelarReserva(r.id)}>Cancelar</button>
-              </td>
+    <div className="minhas-reservas-container">
+      <h1 className="titulo">Minhas Reservas</h1>
+
+      <div className="tabela-container">
+        <table className="tabela-reservas">
+          <thead>
+            <tr>
+              <th>Nº Reserva</th>
+              <th>Mesa</th>
+              <th>Data</th>
+              <th>Horário</th>
+              <th>Ações</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {reservas.map((r) => (
+              <tr key={r.id}>
+                <td>{r.id}</td>
+                <td>{r.mesa}</td>
+                <td>{r.data}</td>
+                <td>{r.horario}</td>
+                <td className="col-acoes">
+                  <button className="btn ver" onClick={() => verDetalhes(r)}>
+                    Ver
+                  </button>
+
+                  <button className="btn editar" onClick={() => editarReserva(r.id)}>
+                    Editar
+                  </button>
+
+                  <button className="btn cancelar" onClick={() => cancelarReserva(r.id)}>
+                    Cancelar
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {reservas.length === 0 && (
+          <p className="mensagem-vazia">Nenhuma reserva encontrada.</p>
+        )}
+      </div>
     </div>
   );
 }

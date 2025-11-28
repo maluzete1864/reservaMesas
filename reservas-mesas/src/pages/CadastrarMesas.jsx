@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CadastrarMesas.css";
 
 function CadastrarMesas() {
   const [mesa, setMesa] = useState({
@@ -7,51 +8,100 @@ function CadastrarMesas() {
     status: "disponível",
   });
 
-  const [mesas, setMesas] = useState([]);
+  const [listaMesas, setListaMesas] = useState([]);
 
   const handleChange = (e) => {
     setMesa({ ...mesa, [e.target.name]: e.target.value });
   };
 
   const salvarMesa = () => {
-    setMesas([...mesas, mesa]);
-    setMesa({ numero: "", capacidade: "", status: "disponível" });
+    if (!mesa.numero || !mesa.capacidade) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    setListaMesas([...listaMesas, mesa]);
+
+    setMesa({
+      numero: "",
+      capacidade: "",
+      status: "disponível",
+    });
   };
 
   const excluirMesa = (index) => {
-    const novas = mesas.filter((_, i) => i !== index);
-    setMesas(novas);
+    const novasMesas = listaMesas.filter((_, i) => i !== index);
+    setListaMesas(novasMesas);
+  };
+
+  const editarMesa = (index) => {
+    alert("Função de edição será implementada futuramente!");
   };
 
   return (
-    <div>
-      <h2>Cadastrar Mesas</h2>
-      <label>Número da Mesa:</label>
-      <input name="numero" value={mesa.numero} onChange={handleChange} />
-      <br />
+    <div className="container-cadastrar">
+      <h1 className="titulo">Cadastrar Mesas</h1>
 
-      <label>Capacidade:</label>
-      <input name="capacidade" value={mesa.capacidade} onChange={handleChange} />
-      <br />
+      <div className="card-form">
+        <label>Número da Mesa</label>
+        <input
+          type="number"
+          name="numero"
+          value={mesa.numero}
+          onChange={handleChange}
+          placeholder="Ex: 12"
+        />
 
-      <label>Status:</label>
-      <select name="status" value={mesa.status} onChange={handleChange}>
-        <option value="disponível">Disponível</option>
-        <option value="ocupada">Ocupada</option>
-      </select>
-      <br />
+        <label>Capacidade da Mesa</label>
+        <input
+          type="number"
+          name="capacidade"
+          value={mesa.capacidade}
+          onChange={handleChange}
+          placeholder="Ex: 4"
+        />
 
-      <button onClick={salvarMesa}>Salvar</button>
+        <label>Status</label>
+        <select name="status" value={mesa.status} onChange={handleChange}>
+          <option value="disponível">Disponível</option>
+          <option value="ocupada">Ocupada</option>
+        </select>
 
-      <h3>Mesas Cadastradas:</h3>
-      <ul>
-        {mesas.map((m, i) => (
-          <li key={i}>
-            Mesa {m.numero} - Capacidade: {m.capacidade} - {m.status}
-            <button onClick={() => excluirMesa(i)}>Excluir</button>
-          </li>
-        ))}
-      </ul>
+        <button className="btn-salvar" onClick={salvarMesa}>
+          Salvar Mesa
+        </button>
+      </div>
+
+      <h2 className="subtitulo">Mesas Cadastradas</h2>
+
+      {listaMesas.length === 0 ? (
+        <p className="mensagem-vazia">Nenhuma mesa cadastrada ainda.</p>
+      ) : (
+        <table className="tabela-mesas">
+          <thead>
+            <tr>
+              <th>Nº Mesa</th>
+              <th>Capacidade</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {listaMesas.map((m, index) => (
+              <tr key={index}>
+                <td>{m.numero}</td>
+                <td>{m.capacidade}</td>
+                <td>{m.status}</td>
+                <td className="col-acoes">
+                  <button className="btn editar" onClick={() => editarMesa(index)}>Editar</button>
+                  <button className="btn excluir" onClick={() => excluirMesa(index)}>Excluir</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }

@@ -1,0 +1,64 @@
+.reservar-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.titulo {
+  color: #8b4513;
+  margin-bottom: 25px;
+}
+
+.form-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.form-reserva input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.btn-confirmar {
+  margin-top: 15px;
+  padding: 12px;
+  background: #8b4513;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-confirmar:hover {
+  opacity: 0.9;
+}
+
+.subtitulo {
+  margin-top: 40px;
+  color: #8b4513;
+}
+
+.lista-reservas {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.item-reserva {
+  background: #f8f5f1;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  text-align: left;
+}

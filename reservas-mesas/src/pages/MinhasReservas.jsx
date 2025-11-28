@@ -1,77 +1,84 @@
 import { useState } from "react";
-import "./MinhasReservas.css";
 
 function MinhasReservas() {
+  const [filtros, setFiltros] = useState({
+    mesa: "",
+    reserva: "",
+    data: "",
+  });
 
-  // Reservas de exemplo (simulação)
+  // Reservas de exemplo (você pode integrar com ReservarMesas depois)
   const [reservas] = useState([
-    { id: 1, mesa: 4, data: "2025-11-05" },
-    { id: 2, mesa: 2, data: "2025-12-01" },
-    { id: 3, mesa: 1, data: "2025-12-20" },
+    { id: 1, mesa: 3, data: "2025-10-31" },
+    { id: 2, mesa: 2, data: "2025-11-01" },
+    { id: 3, mesa: 1, data: "2025-11-05" },
   ]);
-
-  const [filtroMesa, setFiltroMesa] = useState("");
-  const [filtroReserva, setFiltroReserva] = useState("");
-  const [filtroData, setFiltroData] = useState("");
 
   const [resultado, setResultado] = useState([]);
 
-  const consultar = () => {
-    let filtradas = reservas.filter((r) => {
-      const mesaOK = filtroMesa ? r.mesa == filtroMesa : true;
-      const reservaOK = filtroReserva ? r.id == filtroReserva : true;
-      const dataOK = filtroData ? r.data === filtroData : true;
+  const handleChange = (e) => {
+    setFiltros({ ...filtros, [e.target.name]: e.target.value });
+  };
 
-      return mesaOK && reservaOK && dataOK;
+  const consultar = () => {
+    const filtradas = reservas.filter((r) => {
+      const mesaOk = filtros.mesa ? r.mesa == filtros.mesa : true;
+      const reservaOk = filtros.reserva ? r.id == filtros.reserva : true;
+      const dataOk = filtros.data ? r.data === filtros.data : true;
+
+      return mesaOk && reservaOk && dataOk;
     });
 
     setResultado(filtradas);
   };
 
   const limpar = () => {
-    setFiltroMesa("");
-    setFiltroReserva("");
-    setFiltroData("");
+    setFiltros({ mesa: "", reserva: "", data: "" });
     setResultado([]);
   };
 
   return (
-    <div className="minhasreservas-container">
-      <h1>Minhas Reservas</h1>
+    <div style={{ padding: "20px" }}>
+      <h2>Minhas Reservas</h2>
 
-      <div className="filtros">
-        <label>Nº da Mesa</label>
-        <input
-          type="number"
-          value={filtroMesa}
-          onChange={(e) => setFiltroMesa(e.target.value)}
-        />
+      <label>Nº da mesa:</label>
+      <input
+        name="mesa"
+        value={filtros.mesa}
+        onChange={handleChange}
+        placeholder="Ex: 1"
+      />
+      <br />
 
-        <label>Nº da Reserva</label>
-        <input
-          type="number"
-          value={filtroReserva}
-          onChange={(e) => setFiltroReserva(e.target.value)}
-        />
+      <label>Nº da reserva:</label>
+      <input
+        name="reserva"
+        value={filtros.reserva}
+        onChange={handleChange}
+        placeholder="Ex: 3"
+      />
+      <br />
 
-        <label>Data</label>
-        <input
-          type="date"
-          value={filtroData}
-          onChange={(e) => setFiltroData(e.target.value)}
-        />
+      <label>Data:</label>
+      <input
+        type="date"
+        name="data"
+        value={filtros.data}
+        onChange={handleChange}
+      />
+      <br />
 
-        <button onClick={consultar}>Consultar</button>
-        <button onClick={limpar}>Limpar</button>
-      </div>
+      <button onClick={consultar}>Consultar</button>
+      <button onClick={limpar}>Limpar</button>
 
-      <h3>Resultados:</h3>
+      <h3>Resultado:</h3>
+
       {resultado.length > 0 ? (
         <table border="1" cellPadding="5">
           <thead>
             <tr>
-              <th>Nº da reserva</th>
-              <th>Nº da mesa</th>
+              <th>Nº Reserva</th>
+              <th>Mesa</th>
               <th>Data</th>
             </tr>
           </thead>

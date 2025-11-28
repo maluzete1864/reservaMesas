@@ -1,0 +1,103 @@
+.container-cadastrar {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.titulo {
+  color: #8b4513;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.card-form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto 40px auto;
+}
+
+.card-form input,
+.card-form select {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  font-size: 16px;
+}
+
+.btn-salvar {
+  background: #8b4513;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-salvar:hover {
+  opacity: 0.9;
+}
+
+.subtitulo {
+  font-size: 24px;
+  color: #8b4513;
+  margin-bottom: 15px;
+}
+
+.tabela-mesas {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.tabela-mesas th {
+  background: #8b4513;
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.tabela-mesas td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.col-acoes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn.editar {
+  background: #e6a100;
+  color: white;
+}
+
+.btn.excluir {
+  background: #b12b1e;
+  color: white;
+}
+
+.mensagem-vazia {
+  color: #b12b1e;
+  margin-top: 10px;
+  font-weight: bold;
+}

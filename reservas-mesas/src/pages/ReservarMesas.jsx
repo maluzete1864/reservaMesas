@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./ReservarMesas.css";
 
 function ReservarMesas() {
   const [reserva, setReserva] = useState({
@@ -7,6 +8,7 @@ function ReservarMesas() {
     nome: "",
     contato: "",
     mesa: "",
+    pessoas: ""
   });
 
   const [reservas, setReservas] = useState([]);
@@ -16,41 +18,91 @@ function ReservarMesas() {
   };
 
   const confirmarReserva = () => {
-    setReservas([...reservas, reserva]);
-    setReserva({ data: "", horario: "", nome: "", contato: "", mesa: "" });
+    if (!reserva.data || !reserva.horario || !reserva.nome || !reserva.contato || !reserva.mesa) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    setReservas([...reservas, { ...reserva, id: reservas.length + 1 }]);
+    alert("Reserva realizada com sucesso!");
+
+    setReserva({
+      data: "",
+      horario: "",
+      nome: "",
+      contato: "",
+      mesa: "",
+      pessoas: ""
+    });
   };
 
   return (
-    <div>
-      <h2>Reservar Mesas</h2>
+    <div className="reservar-container">
+      <h1 className="titulo">Reservar Mesa</h1>
 
-      <label>Data da Reserva:</label>
-      <input type="date" name="data" value={reserva.data} onChange={handleChange} />
-      <br />
+      <form className="form-reserva">
+        <label>Data da reserva</label>
+        <input
+          type="date"
+          name="data"
+          value={reserva.data}
+          onChange={handleChange}
+        />
 
-      <label>Horário:</label>
-      <input type="time" name="horario" value={reserva.horario} onChange={handleChange} />
-      <br />
+        <label>Horário</label>
+        <input
+          type="time"
+          name="horario"
+          value={reserva.horario}
+          onChange={handleChange}
+        />
 
-      <label>Nome do Cliente:</label>
-      <input name="nome" value={reserva.nome} onChange={handleChange} />
-      <br />
+        <label>Nome do cliente</label>
+        <input
+          name="nome"
+          value={reserva.nome}
+          placeholder="Seu nome"
+          onChange={handleChange}
+        />
 
-      <label>Contato:</label>
-      <input name="contato" value={reserva.contato} onChange={handleChange} />
-      <br />
+        <label>Contato</label>
+        <input
+          name="contato"
+          value={reserva.contato}
+          placeholder="Telefone"
+          onChange={handleChange}
+        />
 
-      <label>Mesa:</label>
-      <input name="mesa" value={reserva.mesa} onChange={handleChange} />
-      <br />
+        <label>Mesa</label>
+        <input
+          name="mesa"
+          value={reserva.mesa}
+          placeholder="Número da mesa"
+          onChange={handleChange}
+        />
 
-      <button onClick={confirmarReserva}>Confirmar Reserva</button>
+        <label>Quantidade de pessoas</label>
+        <input
+          type="number"
+          name="pessoas"
+          value={reserva.pessoas}
+          placeholder="Ex: 4"
+          onChange={handleChange}
+        />
 
-      <h3>Reservas Feitas:</h3>
-      <ul>
-        {reservas.map((r, i) => (
-          <li key={i}>
-            {r.nome} - Mesa {r.mesa} em {r.data} às {r.horario}
+        <button type="button" className="btn-confirmar" onClick={confirmarReserva}>
+          Confirmar Reserva
+        </button>
+      </form>
+
+      <h2 className="subtitulo">Reservas Feitas</h2>
+
+      <ul className="lista-reservas">
+        {reservas.map((r) => (
+          <li key={r.id} className="item-reserva">
+            <strong>#{r.id}</strong> — Mesa {r.mesa} — {r.data} às {r.horario}
+            <br />
+            Cliente: {r.nome} / {r.contato}
           </li>
         ))}
       </ul>

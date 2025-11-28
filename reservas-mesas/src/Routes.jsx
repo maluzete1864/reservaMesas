@@ -24,7 +24,7 @@ function AppRoutes() {
         <Route path="/reservar-mesas" element={<ReservarMesas />} />
         <Route path="/consultar-mesas" element={<ConsultarMesas />} />
         <Route path="/minhas-reservas" element={<ListarMinhasReservas />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
 
       </Routes>
     </BrowserRouter>

@@ -1,21 +1,30 @@
+import "./AtualizarPerfil.css";
+
 function AtualizarPerfil() {
   return (
-    <div>
-      <h2>Atualizar Perfil</h2>
-      <form>
-        <label>Nome:</label>
+    <div className="atualizar-container">
+      <h1 className="titulo">Atualizar Perfil</h1>
+
+      <form className="form-atualizar">
+
+        <label>Nome</label>
         <input type="text" placeholder="Digite o novo nome" />
-        <br />
 
-        <label>Email:</label>
+        <label>Sobrenome</label>
+        <input type="text" placeholder="Digite o novo sobrenome" />
+
+        <label>Email</label>
         <input type="email" placeholder="Digite o novo e-mail" />
-        <br />
 
-        <label>Senha:</label>
+        <label>Senha</label>
         <input type="password" placeholder="Nova senha" />
-        <br />
 
-        <button type="submit">Salvar Alterações</button>
+        <label>Confirmar Senha</label>
+        <input type="password" placeholder="Repita a nova senha" />
+
+        <button type="submit" className="btn-salvar">
+          Salvar Alterações
+        </button>
       </form>
     </div>
   );
