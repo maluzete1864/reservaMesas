@@ -1,51 +1,79 @@
+
+
 .reservar-container {
-  max-width: 500px;
+  max-width: 900px;
   margin: 40px auto;
-  background: #fff;
+  background: #ffffff;
   padding: 30px;
-  border-radius: 15px;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  text-align: center;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
 }
 
 .titulo {
-  color: #8b4513;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
   margin-bottom: 25px;
 }
+
+
 
 .form-reserva {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  text-align: left;
+  gap: 12px;
 }
 
-.form-reserva input {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+.form-reserva label {
+  font-weight: 600;
+  color: #444;
 }
+
+.form-reserva input,
+.form-reserva select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.form-reserva input:focus,
+.form-reserva select:focus {
+  border-color: #ff7e5f;
+  box-shadow: 0 0 6px rgba(255, 126, 95, 0.5);
+  outline: none;
+}
+
+
 
 .btn-confirmar {
-  margin-top: 15px;
-  padding: 12px;
-  background: #8b4513;
+  background: linear-gradient(45deg, #ff7e5f, #ffb084);
   border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
   color: white;
-  font-size: 18px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
 }
 
 .btn-confirmar:hover {
-  opacity: 0.9;
+  transform: scale(1.03);
+  background: linear-gradient(45deg, #ff6f4f, #ffa672);
 }
 
+
+
 .subtitulo {
-  margin-top: 40px;
-  color: #8b4513;
+  margin-top: 35px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
 }
 
 .lista-reservas {
@@ -55,10 +83,14 @@
 }
 
 .item-reserva {
-  background: #f8f5f1;
+  background: #fafafa;
+  border-left: 4px solid #ff7e5f;
   padding: 15px;
+  margin: 12px 0;
   border-radius: 8px;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-  text-align: left;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+
+.item-reserva strong {
+  color: #ff7e5f;
 }

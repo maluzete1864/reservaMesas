@@ -1,33 +1,91 @@
+
+
 .cardapio-container {
-  padding: 20px;
-  text-align: center;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #FFF3E3; 
+  border-radius: 18px;
+  border: 1px solid #f0d7bf;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
 }
+
+.cardapio-container h1 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #8A4B25; 
+}
+
+
 
 .pratos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+  gap: 28px; 
 }
 
+
+
 .prato-card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #FFE9D1; 
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  color: #4A2A1B;
+  transition: 0.3s ease;
+  border: 1px solid #edceac;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
 }
+
+.prato-card:hover {
+  transform: translateY(-6px);
+  background: #F1C27D; 
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+
 
 .prato-img {
   width: 100%;
-  height: 180px;
+  height: 170px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 14px;
+  margin-bottom: 15px;
+  border: 2px solid #D97A2B;
 }
 
+
+
+.prato-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: #8A4B25;
+}
+
+.prato-card p {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: #4A2A1B;
+}
+
+
+
 .preco {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #b4371a;
-  font-size: 18px;
+  display: inline-block;
+  margin-top: 5px;
+  padding: 8px 14px;
+  background: #D97A2B;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.25s;
+}
+
+.prato-card:hover .preco {
+  background: #bf671f;
 }
