@@ -7,7 +7,7 @@ function MinhasReservas() {
     data: "",
   });
 
-  // Reservas de exemplo (você pode integrar com ReservarMesas depois)
+  
   const [reservas] = useState([
     { id: 1, mesa: 3, data: "2025-10-31" },
     { id: 2, mesa: 2, data: "2025-11-01" },

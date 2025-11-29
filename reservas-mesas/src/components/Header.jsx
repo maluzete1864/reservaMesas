@@ -22,17 +22,17 @@ function Header() {
         {menuOpen && (
           <nav className="menu-dropdown">
 
-            {/* Home */}
+           
             <Link to="/home" onClick={() => setMenuOpen(false)}>
               Início
             </Link>
 
-            {/* Usuário */}
+           
             <Link to="/" onClick={() => setMenuOpen(false)}>Login</Link>
             <Link to="/cadastro" onClick={() => setMenuOpen(false)}>Cadastro</Link>
             <Link to="/perfil" onClick={() => setMenuOpen(false)}>Perfil</Link>
 
-            {/* Mesas */}
+          
             <Link to="/cadastrar-mesas" onClick={() => setMenuOpen(false)}>
               Cadastrar Mesas
             </Link>
@@ -49,7 +49,7 @@ function Header() {
               Minhas Reservas
             </Link>
 
-            {/* Cardápio */}
+        
             <Link to="/cardapio" onClick={() => setMenuOpen(false)}>
               Cardápio
             </Link>

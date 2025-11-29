@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./ConsultarMesas.css";
 
 function ConsultarMesas() {
-  // Mesas cadastradas (exemplo BASE)
+ 
   const [mesas] = useState([
     { numero: 1, capacidade: 2, status: "disponível" },
     { numero: 2, capacidade: 4, status: "ocupada" },
@@ -10,14 +10,12 @@ function ConsultarMesas() {
     { numero: 4, capacidade: 4, status: "ocupada" },
   ]);
 
-  // Filtros da tela
   const [filtro, setFiltro] = useState({
     numero: "",
     capacidade: "",
     status: "",
   });
 
-  // Resultado da consulta
   const [resultado, setResultado] = useState([]);
 
   const handleChange = (e) => {
@@ -44,7 +42,7 @@ function ConsultarMesas() {
     <div className="mesas-container">
       <h1 className="titulo">Consultar Mesas</h1>
 
-      {/* CARD DOS FILTROS */}
+     
       <div className="card-filtros">
         <label>Número da Mesa</label>
         <input
@@ -77,7 +75,7 @@ function ConsultarMesas() {
         </div>
       </div>
 
-      {/* RESULTADOS */}
+   
       <div className="card-resultados">
         <h2>Resultados</h2>
 
