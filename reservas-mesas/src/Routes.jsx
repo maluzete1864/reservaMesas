@@ -11,13 +11,18 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Cardapio from "./pages/Cardapio";
 
-
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
+
+        {/* Login como página inicial */}
         <Route path="/" element={<Login />} />
+
+        {/* Home em rota própria */}
+        <Route path="/home" element={<Home />} />
+
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/atualizar-perfil" element={<AtualizarPerfil />} />
@@ -25,10 +30,7 @@ function AppRoutes() {
         <Route path="/reservar-mesas" element={<ReservarMesas />} />
         <Route path="/consultar-mesas" element={<ConsultarMesas />} />
         <Route path="/minhas-reservas" element={<ListarMinhasReservas />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/cardapio" element={<Cardapio />} />
-
-
       </Routes>
     </BrowserRouter>
   );

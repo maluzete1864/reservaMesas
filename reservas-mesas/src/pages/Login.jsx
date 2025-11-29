@@ -3,22 +3,39 @@ import "./Login.css";
 
 function Login() {
   return (
-    <div className="login-container">
-      <h1 className="login-title">Login</h1>
+    <div className="page-container">
 
-      <form className="login-form">
-        <label>Email:</label>
-        <input type="email" placeholder="Digite seu email" />
+      <div className="card">
+        <h1 className="title">Login</h1>
 
-        <label>Senha:</label>
-        <input type="password" placeholder="Digite sua senha" />
+        <form className="form">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Digite seu email"
+            className="input"
+          />
 
-        <button type="submit" className="btn-login">Entrar</button>
-      </form>
+          <label>Senha</label>
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            className="input"
+          />
 
-      <p className="login-link">
-        Ainda não tem conta? <Link to="/cadastro">Cadastre-se aqui</Link>
-      </p>
+          <button type="submit" className="btn-primary">
+            Entrar
+          </button>
+        </form>
+
+        <p className="text-center">
+          Ainda não tem conta?{" "}
+          <Link to="/cadastro" className="link">
+            Cadastre-se aqui
+          </Link>
+        </p>
+      </div>
+
     </div>
   );
 }

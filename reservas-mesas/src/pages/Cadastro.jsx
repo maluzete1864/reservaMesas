@@ -3,40 +3,47 @@ import "./Cadastro.css";
 
 function Cadastro() {
   return (
-    <div className="cadastro-container">
-      <h1 className="cadastro-title">Cadastro de Usuário</h1>
+    <div className="page-container">
 
-      <form className="cadastro-form">
-        <label>Nome</label>
-        <input type="text" placeholder="Digite seu nome" />
+      <div className="card">
+        <h1 className="title">Cadastro de Usuário</h1>
 
-        <label>Sobrenome</label>
-        <input type="text" placeholder="Digite seu sobrenome" />
+        <form className="form">
+          <label>Nome</label>
+          <input type="text" className="input" placeholder="Digite seu nome" />
 
-        <label>E-mail</label>
-        <input type="email" placeholder="Digite seu e-mail" />
+          <label>Sobrenome</label>
+          <input type="text" className="input" placeholder="Digite seu sobrenome" />
 
-        <label>Rua</label>
-        <input type="text" placeholder="Digite a rua" />
+          <label>E-mail</label>
+          <input type="email" className="input" placeholder="Digite seu e-mail" />
 
-        <label>Nº</label>
-        <input type="text" placeholder="Número" />
+          <label>Rua</label>
+          <input type="text" className="input" placeholder="Digite a rua" />
 
-        <label>Bairro</label>
-        <input type="text" placeholder="Digite seu bairro" />
+          <label>Nº</label>
+          <input type="text" className="input" placeholder="Número" />
 
-        <label>Cidade</label>
-        <input type="text" placeholder="Cidade" />
+          <label>Bairro</label>
+          <input type="text" className="input" placeholder="Digite seu bairro" />
 
-        <label>UF</label>
-        <input type="text" maxLength={2} placeholder="UF" />
+          <label>Cidade</label>
+          <input type="text" className="input" placeholder="Cidade" />
 
-        <button type="submit" className="btn-cadastrar">Cadastrar</button>
-      </form>
+          <label>UF</label>
+          <input type="text" className="input" maxLength={2} placeholder="UF" />
 
-      <p className="cadastro-link">
-        Já possui conta? <Link to="/">Faça login</Link>
-      </p>
+          <button type="submit" className="btn-primary">
+            Cadastrar
+          </button>
+        </form>
+
+        <p className="text-center">
+          Já possui conta?{" "}
+          <Link to="/" className="link">Faça login</Link>
+        </p>
+      </div>
+
     </div>
   );
 }

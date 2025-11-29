@@ -2,27 +2,37 @@ import "./AtualizarPerfil.css";
 
 function AtualizarPerfil() {
   return (
-    <div className="atualizar-container">
-      <h1 className="titulo">Atualizar Perfil</h1>
+    <div className="perfil-update-container">
+      <h1 className="perfil-update-title">Atualizar Perfil</h1>
 
-      <form className="form-atualizar">
+      <form className="perfil-update-form">
 
-        <label>Nome</label>
-        <input type="text" placeholder="Digite o novo nome" />
+        <div className="input-group">
+          <label>Nome</label>
+          <input type="text" placeholder="Digite o novo nome" />
+        </div>
 
-        <label>Sobrenome</label>
-        <input type="text" placeholder="Digite o novo sobrenome" />
+        <div className="input-group">
+          <label>Sobrenome</label>
+          <input type="text" placeholder="Digite o novo sobrenome" />
+        </div>
 
-        <label>Email</label>
-        <input type="email" placeholder="Digite o novo e-mail" />
+        <div className="input-group">
+          <label>Email</label>
+          <input type="email" placeholder="Digite o novo e-mail" />
+        </div>
 
-        <label>Senha</label>
-        <input type="password" placeholder="Nova senha" />
+        <div className="input-group">
+          <label>Senha</label>
+          <input type="password" placeholder="Nova senha" />
+        </div>
 
-        <label>Confirmar Senha</label>
-        <input type="password" placeholder="Repita a nova senha" />
+        <div className="input-group">
+          <label>Confirmar Senha</label>
+          <input type="password" placeholder="Repita a nova senha" />
+        </div>
 
-        <button type="submit" className="btn-salvar">
+        <button type="submit" className="btn-update-save">
           Salvar Alterações
         </button>
       </form>

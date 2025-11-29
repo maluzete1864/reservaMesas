@@ -1,24 +1,16 @@
-import "./Home.css";
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 function Home() {
   return (
     <div className="home-container">
+      <h1 className="home-title">Bem-vindo ao nosso restaurante</h1>
+      <p className="home-subtitle">Escolha uma opção abaixo:</p>
 
-      {/* ÁREA PRINCIPAL COM IMAGEM DE FUNDO */}
-      <section className="banner">
-        <h1 className="banner-title">RESTAURANTE SABOR DA TERRA</h1>
-        <h3 className="banner-subtitle">COZINHA NORDESTINA</h3>
-
-        <Link to="/reservar-mesas" className="btn-reservas">
-          Reservas
-        </Link>
-      </section>
-
-      {/* RODAPÉ */}
-      <footer className="rodape">
-        xxxxxx (99) 99999-9999 — xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      </footer>
+      <div className="home-buttons">
+        <Link to="/cadastro" className="btn-home">Cadastrar Usuário</Link>
+        <Link to="/perfil" className="btn-home">Meu Perfil</Link>
+      </div>
     </div>
   );
 }
