@@ -1,28 +1,46 @@
 import "./Cardapio.css";
 
 function Cardapio() {
+  const pratos = [
+    {
+      nome: "Carne de Sol com Mandioca",
+      descricao: "Acompanha arroz, feijão tropeiro e vinagrete.",
+      preco: "R$ 39,90",
+      imagem: "https://i.imgur.com/RW1zUOa.jpeg"
+    },
+    {
+      nome: "Baião de Dois",
+      descricao: "Feito com feijão verde, arroz, queijo coalho e carne seca.",
+      preco: "R$ 34,90",
+      imagem: "https://i.imgur.com/b0KzGfh.jpeg"
+    },
+    {
+      nome: "Moqueca Nordestina",
+      descricao: "Peixe ao leite de coco com pimentões e coentro.",
+      preco: "R$ 44,90",
+      imagem: "https://i.imgur.com/3F2pQxg.jpeg"
+    },
+    {
+      nome: "Galinhada Caipira",
+      descricao: "Arroz temperado com frango, açafrão e legumes.",
+      preco: "R$ 29,90",
+      imagem: "https://i.imgur.com/tqvTQWk.jpeg"
+    }
+  ];
+
   return (
     <div className="cardapio-container">
       <h1>Cardápio</h1>
 
-      <div className="pratos">
-        <div className="prato">
-          <img src="https://images.unsplash.com/photo-1606973035033-07c5b91c2c8a" alt="Prato 1" />
-          <h3>Baião de Dois</h3>
-          <p>Arroz, feijão verde, queijo coalho e temperos da casa.</p>
-        </div>
-
-        <div className="prato">
-          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Prato 2" />
-          <h3>Carne de Sol</h3>
-          <p>Acompanha mandioca cozida, vinagrete e farofa.</p>
-        </div>
-
-        <div className="prato">
-          <img src="https://images.unsplash.com/photo-1617196037304-081814dc2e36" alt="Prato 3" />
-          <h3>Galinhada</h3>
-          <p>Arroz temperado com frango caipira e especiarias.</p>
-        </div>
+      <div className="pratos-grid">
+        {pratos.map((prato, index) => (
+          <div className="prato-card" key={index}>
+            <img src={prato.imagem} alt={prato.nome} className="prato-img" />
+            <h3>{prato.nome}</h3>
+            <p>{prato.descricao}</p>
+            <span className="preco">{prato.preco}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

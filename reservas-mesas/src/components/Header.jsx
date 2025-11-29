@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "../index.css"; // agora ele usa o CSS global
+import "../index.css";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,10 +19,14 @@ function Header() {
             <Link to="/" onClick={() => setMenuOpen(false)}>Login</Link>
             <Link to="/cadastro" onClick={() => setMenuOpen(false)}>Cadastro</Link>
             <Link to="/perfil" onClick={() => setMenuOpen(false)}>Perfil</Link>
+
             <Link to="/cadastrar-mesas" onClick={() => setMenuOpen(false)}>Cadastrar Mesas</Link>
             <Link to="/reservar-mesas" onClick={() => setMenuOpen(false)}>Reservar Mesas</Link>
             <Link to="/consultar-mesas" onClick={() => setMenuOpen(false)}>Consultar Mesas</Link>
             <Link to="/minhas-reservas" onClick={() => setMenuOpen(false)}>Minhas Reservas</Link>
+
+            {/* NOVO ITEM */}
+            <Link to="/cardapio" onClick={() => setMenuOpen(false)}>Cardápio</Link>
           </nav>
         )}
       </div>

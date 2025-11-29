@@ -9,6 +9,7 @@ import ConsultarMesas from "./pages/ConsultarMesas";
 import ListarMinhasReservas from "./pages/ListarMinhasReservas";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Cardapio from "./pages/Cardapio";
 
 
 function AppRoutes() {
@@ -25,6 +26,8 @@ function AppRoutes() {
         <Route path="/consultar-mesas" element={<ConsultarMesas />} />
         <Route path="/minhas-reservas" element={<ListarMinhasReservas />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/cardapio" element={<Cardapio />} />
+
 
       </Routes>
     </BrowserRouter>
